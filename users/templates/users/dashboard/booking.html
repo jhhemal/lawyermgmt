@@ -1,0 +1,59 @@
+{% extends 'users/dashboard/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h1 class="mt-4">Dashboard</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item">Dashboard</li>
+    <li class="breadcrumb-item active">Update Booking</li>
+</ol>
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table mr-1"></i>
+        All Bookings
+    </div>
+    
+    <div class="card-body p-3">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Client</th>
+                    <th>Lawyer</th>
+                    <th>Date</th>
+                    <th>Payment Method</th>
+                    <th>TRXN ID</th>
+                    <th>Ammount</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>Client</th>
+                    <th>Lawyer</th>
+                    <th>Date</th>
+                    <th>Payment Method</th>
+                    <th>TRXN ID</th>
+                    <th>Ammount</th>
+                    <th>Status</th>
+                    <th>Adction</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                {% for b in bookings %}
+                    <tr>
+                        <td>{{ b.client }}</td>
+                        <td>{{ b.lawyer }}</td>
+                        <td>{{ b.date }}</td>
+                        <td>{{ b.payment_method }}</td>
+                        <td>{{ b.trxnid }}</td>
+                        <td>{{ b.amount }}</td>
+                        <td>{{ b.status }}</td>
+                        <td><a href="{% url 'abooking-update' b.id %}" class="btn btn-sm btn-warning">Update</a></td>
+                    </tr>
+                {% endfor %}
+                
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock content %}

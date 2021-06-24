@@ -1,0 +1,34 @@
+{% extends 'users/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+    <div class="my-5 w-75 mx-auto">
+        <h2>Search Lawyers</h2>
+        <form action="" method="get">
+            {{ lawyerFilter.form|crispy }}
+            <button type="submit" class="btn btn-warning ml-4">Search</button>
+        </form>
+        <div class="row my-3">
+        {% for lawyer in lawyers %}
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="card card-shadow text-center" style="width: 18rem;">
+                            <img style="height: 287px;" class="card-img-top" src="{{ lawyer.image.url }}" alt="Card image cap">
+                            <div class="coustom-caption">
+                            <i class="fas fa-user-graduate"></i> Experience: {{ lawyer.exp }} Years
+                            </div>
+                            <div class="card-body">
+                            <h4 class="card-title">{{ lawyer.first_name }} {{ lawyer.last_name }}</h4>
+                            <p class="card-text">Some quick example text to build.</p>
+                            <a href="{% url 'lawyer-profile' lawyer.id %}" class="btn btn-primary"><i class="fas fa-user"></i>  View Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %} 
+        </div>
+        
+    </div>
+    {% endblock content %}

@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lawyer management System</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/coustome.css' %}"></link>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        .banner-container{
+        background-color: #cacaca;
+        }
+        .banner-column{
+            background-color: #868686;
+        }
+        .navbar-container{
+            background-color: rgb(59, 58, 58);
+        }
+    </style>
+    {% block style %}
+    
+    {% endblock style %}
+</head>
+<body>
+    
+    <nav class="bg-info">
+        <div class="d-flex justify-content-between p-2">
+            <h2 class="text-white">Lawyer Hiring System</h2>
+            <div class="d-flex">
+                <a class="p-2 nav-link me-5 text-white" href="{% url 'home' %}">Home</a>
+                <a class="p-2 nav-link me-5 text-white" href="{% url 'about' %}">About</a>
+                {% if request.user.is_authenticated %}
+                <a class="p-2 nav-link me-5 text-white" href="{% url 'user-profile' request.user.id %}">Profile</a>
+                {% if request.user.user_type == 3 %}
+                <a class="p-2 nav-link me-5 text-white" href="{% url 'search' %}">Search</a>
+                {% endif %}
+                {% if request.user.user_type == 2 %}
+                <a class="p-2 nav-link me-5 text-white" href="{% url 'expert-area-create' %}">Add Expert Area</a>
+                {% endif %}
+                <a class="p-2 nav-link me-5 text-light bg-danger" href="{% url 'logout' %}"> Logout </a>
+                {% else %}
+                <a class="p-2 nav-link me-5 text-light bg-danger" href="{% url 'login' %}"> LOGIN/Register </a>
+                <a class="p-2 nav-link me-5 text-light bg-danger" href="{% url 'lawyer-reg' %}">Lawyer Register</a>
+                <a class="p-2 nav-link me-5 text-light bg-danger" href="{% url 'client-reg' %}">User Register</a>
+                {% endif %}
+            </div>
+            
+        </div>
+    </nav>
+    {% block content %}
+    <div class="container-fluid">
+
+    </div>
+    {% endblock content %}
+    {% block ex %}
+    {% endblock ex %}
+    
+
+
+
+    <br>
+<footer class="container-fluid bg-dark p-5">
+    <div class="d-flex justify-content-between text-light">
+        <div style="width: 200px;height: 200px;">
+            <h3>Lawyer management</h3>
+            <p> leap into electronic typesetting, remaining esse</p>
+        </div>
+        <div style="width: 200px;height: 200px;">
+            <p> leap into electronic typesetting, remaining esse</p>
+        </div>
+        <div style="width: 200px;height: 200px;">
+            <p> leap into electronic typesetting, remaining esse</p>
+        </div>
+        <div style="width: 200px;height: 200px;">
+            <p> leap into electronic typesetting, remaining esse</p>
+        </div>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</body>
+</html>

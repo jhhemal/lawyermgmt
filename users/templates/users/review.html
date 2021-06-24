@@ -1,0 +1,15 @@
+{% extends 'users/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+    <div class="my-5 w-50 mx-auto bg-info text-dark shadow p-5" style="border-radius: 10px;">
+        <h2 class="text-center">Hire Lawyer</h2>
+        
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-success">Submit Review</button>
+        </form>
+        
+    </div>
+    {% endblock content %}

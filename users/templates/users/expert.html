@@ -1,0 +1,15 @@
+{% extends 'users/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+    <div class="my-5 w-50 mx-auto bg-light text-dark shadow p-3">
+        <h2 class="text-center">Add your sepciality</h2>
+        
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-warning">Submit</button>
+        </form>
+        
+    </div>
+    {% endblock content %}

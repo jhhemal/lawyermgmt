@@ -1,0 +1,7 @@
+{% autoescape off %}  
+Hi {{ user.first_name }} {{ user.last_name }},
+Mr. {{ client.first_name }} {{ client.last_name }} has paid {{ amount }} BDT for {{ service }} consulting.
+Please contant {{ client.mobile_no }} or {{ client.email }}.
+The Meeting Scheduled date is: {{ date }}
+If you think, it's not you, then just ignore this email.  
+{% endautoescape %}

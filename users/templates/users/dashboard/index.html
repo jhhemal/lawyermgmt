@@ -1,0 +1,109 @@
+{% extends 'users/dashboard/base.html' %}
+
+{% block content %}
+<h1 class="mt-4">Dashboard</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Dashboard</li>
+</ol>
+<br>
+<div class="row my-5 mx-auto">
+    <div class="card text-white bg-danger mb-3 mr-2" style="width: 20rem;">
+        <div class="card-header">Total Lawyer</div>
+        <div class="card-body">
+          <h5 class="card-title">{{ tlawyers }}</h5>
+          <p class="card-text"></p>
+        </div>
+      </div>
+
+
+      <div class="card text-white bg-danger mb-3 mr-2" style="width: 20rem;">
+        <div class="card-header">Total Client</div>
+        <div class="card-body">
+          <h5 class="card-title">{{ tclients }}+</h5>
+          <p class="card-text"></p>
+        </div>
+      </div>
+
+
+      <div class="card text-white bg-danger mb-3 mr-2" style="width: 20rem;">
+        <div class="card-header">Total Service</div>
+        <div class="card-body">
+          <h5 class="card-title">{{ bookings }}</h5>
+          <p class="card-text"></p>
+        </div>
+      </div>
+
+
+      <div class="card text-white bg-danger mb-3 mr-2" style="width: 20rem;">
+        <div class="card-header">Total Review</div>
+        <div class="card-body">
+          <h5 class="card-title">{{ reviews }}</h5>
+          <p class="card-text"></p>
+        </div>
+      </div>
+
+
+      
+      <div class="card text-white bg-danger mb-3 mr-2" style="width: 20rem;">
+        <div class="card-header">Total Review</div>
+        <div class="card-body">
+          <h5 class="card-title">50</h5>
+          <p class="card-text"></p>
+        </div>
+      </div>
+
+
+      
+      <div class="card text-white bg-danger mb-3 mr-2" style="width: 20rem;">
+        <div class="card-header">Total Review</div>
+        <div class="card-body">
+          <h5 class="card-title">50</h5>
+          <p class="card-text"></p>
+        </div>
+      </div>
+</div>
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table mr-1"></i>
+        All of Our Lawyers
+    </div>
+    
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Action</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    {% for lawyer in lawyers %}
+                        <tr>
+                            <td>{{ lawyer.first_name }} {{ lawyer.last_name }}</td>
+                            <td>{{ lawyer.email }}</td>
+                            <td>{{ lawyer.mobile_no }}</td>
+                            <td>{{ lawyer.address }}</td>
+                            <td><a href="{% url 'dlawyer-update' lawyer.id %}" class="btn btn-warning">Update</a></td>
+                            <td><a href="{% url 'user-delete' lawyer.id %}" class="btn btn-danger">Delete</a></td>
+                        </tr>
+                    {% endfor %}
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock content %}

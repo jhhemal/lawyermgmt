@@ -1,0 +1,57 @@
+.coustom-caption{
+    position: absolute; 
+    top: 242px; 
+    left: 0; 
+    background-color: rgba(0, 0, 255, 0.459);
+    width: 100%;
+    padding: 10px;
+    color: #fff;
+}
+.card-shadow{
+    margin:auto;
+    box-shadow: rgba(46, 46, 46, 0.329) 0px 0px 10px 0px;
+}
+.btn-style{
+    width:200px;
+    text-align:center;
+    text-decoration: none;
+    padding:20px;
+    box-shadow: #2b2b2b63 0px 0px 5px;
+    margin:10px;
+    font-weight: bold;
+}
+.btn-style:hover{
+    text-decoration:none;
+}
+.btn-style-top-left{
+    border-top-left-radius: 25px;
+    border-bottom-right-radius: 10px;
+}
+.btn-style-top-right{
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 10px;
+}
+
+.btn-style-midel{
+    border-radius: 0;
+}
+.btn-style-bottom-left{
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 25px;
+}
+.btn-style-bottom-right{
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 25px;
+}
+.border-right h1{
+    font-size:60px;
+    font-weight: bold;
+    line-height: 40px;
+}
+.border-right p{
+    font-size:24px;
+    font-weight: bold;
+}
+.fas-icon{
+    font-size:60px;
+}

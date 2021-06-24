@@ -1,0 +1,66 @@
+{% extends 'users/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="my-5 w-75 mx-auto bg-info shadow p-5" style="border-radius: 10px;">
+        <h2 class="text-center text-white">Lawyer Registraion</h2>
+        <hr>
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-6">
+                    {{ form.first_name|as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ form.last_name|as_crispy_field }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    {{ form.email|as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ form.username|as_crispy_field }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    {{ form.mobile_no|as_crispy_field }}
+                </div>
+                <div class="col-4">
+                    {{ form.membership_id|as_crispy_field }}
+                </div>
+                <div class="col-4">
+                    {{ form.category|as_crispy_field }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    {{ form.address|as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ form.image|as_crispy_field }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    {{ form.fee|as_crispy_field }}
+                </div>
+                <div class="col-4">
+                    {{ form.exp|as_crispy_field }}
+                </div>
+                <div class="col-4">
+                    {{ form.bio|as_crispy_field }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    {{ form.password1|as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ form.password2|as_crispy_field }}
+                </div>
+            </div>
+            <button type="submit" class="btn btn-warning">Register</button>
+        </form>
+    </div>
+{% endblock content %}
